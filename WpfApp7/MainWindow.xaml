@@ -83,10 +83,13 @@
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Border BorderBrush="Red">
-                            <TextBlock Text="Header" />
-                        </Border>
-                        <local:SelectTextBox Text="hoge" />
+                        <ContentControl Content="{Binding DisplayContent}">
+                            <ContentControl.Resources>
+                                <DataTemplate DataType="{x:Type local:ContentVM}">
+                                    <local:SelectTextBox Text="{Binding Content.Value}" />
+                                </DataTemplate>
+                            </ContentControl.Resources>
+                        </ContentControl>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ContentTemplate>

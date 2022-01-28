@@ -16,7 +16,7 @@ namespace WpfApp7
         public ReactiveCollection<TabItemVM> TabItems { get; set; } = new ReactiveCollection<TabItemVM>();
         public ReactiveCommand<object> PushCommand { get; set; } = new ReactiveCommand<object>();
         public ReactiveProperty<string> Texts { get; set; } = new ReactiveProperty<string>();
-
+         
         public MainWindowVM()
         {
             PushCommand.Subscribe(x => PushAction(x)).AddTo(this.CompositeDisposable);
@@ -30,6 +30,10 @@ namespace WpfApp7
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
         private void PushAction(object x)
         {
 
